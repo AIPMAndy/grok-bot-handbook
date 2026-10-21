@@ -8,7 +8,7 @@
 
 ![原创社交预览封面](assets/social-preview.svg)
 
-**在线网站（仓库发布且 Pages 部署后生效）**：https://aipmandy.github.io/grok-bot-handbook/
+**在线网站**：https://aipmandy.github.io/grok-bot-handbook/
 
 **先从这里开始：** [10 分钟入门](guides/START-HERE.md) · [26 章完整版](docs/COMPLETE-GUIDE.md) · [40 套可复制指令](docs/PROMPT-LIBRARY.md) · [套餐防坑指南](docs/BILLING-AND-ACCESS.md) · [对抗式审核报告](docs/ADVERSARIAL-AUDIT.md)
 
@@ -103,26 +103,6 @@ python3 -m http.server 8000
 ```
 
 **单一内容源**是 `scripts/build_content.py`。修改章节、模板、FAQ、来源后重新生成两份 catalog 和 Markdown。诊断器的源文件是 `scripts/build_extras.py`，它生成 `data/extras.json` 与 `data/extras.js`。改动后必须通过质量门禁；即使代码通过，真实账号功能仍要人工验证。
-
-## 交付 GitHub 和网站
-
-预定仓库：`https://github.com/AIPMAndy/grok-bot-handbook`；预定网站：`https://aipmandy.github.io/grok-bot-handbook/`。**这两个链接只有在仓库创建并发布后才代表已上线。** 不要覆盖已经存在的其它教程项目。
-
-1. 在 GitHub [创建公开仓库](https://github.com/new)，名称填 `grok-bot-handbook`，无需初始化文件。
-2. 上传本项目完整文件到 `main` 分支。仓库还不存在时，在本地项目根目录执行：
-
-```bash
-git init
-git add .
-git commit -m "feat: publish Grok Bot Handbook v3"
-git branch -M main
-git remote add origin https://github.com/AIPMAndy/grok-bot-handbook.git
-git push -u origin main
-```
-
-3. 打开 [Pages 配置](https://github.com/AIPMAndy/grok-bot-handbook/settings/pages)，将 Build and deployment → Source 设为 **GitHub Actions**。
-4. 确认 `Check guide quality` 与 `Deploy website to GitHub Pages` 都成功，随后用无痕窗口实测首页和交互。
-5. 最后再在 GitHub About 填网站链接、描述与 Topics。详情见 [LAUNCH.md](LAUNCH.md)。
 
 ## 贡献、许可与免责声明
 
