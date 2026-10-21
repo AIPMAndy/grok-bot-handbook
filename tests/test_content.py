@@ -82,7 +82,7 @@ class ContentTest(unittest.TestCase):
   self.assertIn('免费',h)
  def test_no_sensitive_private_keys(self):
   for p in R.rglob('*'):
-   if not p.is_file() or p.suffix.lower() in ('.png','.jpg','.jpeg','.zip','.pyc','.svg') or '__pycache__' in p.parts:continue
+   if not p.is_file() or p.suffix.lower() in ('.png','.jpg','.jpeg','.zip','.pyc','.svg') or '__pycache__' in p.parts or '.git' in p.parts:continue
    data=p.read_text(encoding='utf-8-sig')
    # Detect long accidental key-shaped strings; human examples with small placeholders are fine.
    self.assertNotRegex(data,r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----')
