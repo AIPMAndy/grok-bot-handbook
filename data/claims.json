@@ -1,0 +1,178 @@
+{
+  "version": "3.0.0",
+  "reviewed_at": "2026-10-21",
+  "verification_scope": "逐条对照官方公开网页；没有执行 Grok Bot 账号端实测；网页可变",
+  "claims": [
+    {
+      "id": "C-001",
+      "topic": "subscription",
+      "claim": "新版 The X Subscription Premium/Super/Ultra 包含 Grok Bot；Free/Plus 不包含",
+      "official_url": "https://docs.x.ai/x-subscription/grok-bot",
+      "local_documents": [
+        "docs/BILLING-AND-ACCESS.md",
+        "README.md"
+      ],
+      "risk": "high",
+      "last_verified": "2026-10-21",
+      "max_age_days": 14,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-002",
+      "topic": "billing",
+      "claim": "新版 Grok Bot 使用与其他产品共享的每周用量池，非独立赠送池",
+      "official_url": "https://docs.x.ai/x-subscription/grok-bot",
+      "local_documents": [
+        "docs/BILLING-AND-ACCESS.md",
+        "README.md"
+      ],
+      "risk": "high",
+      "last_verified": "2026-10-21",
+      "max_age_days": 14,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-003",
+      "topic": "legacy-access",
+      "claim": "付费旧版 Cursor 和指定 SuperGrok/X Premium+ 关联账户有单独资格规则",
+      "official_url": "https://cursor.com/help/grok-bot/plans",
+      "local_documents": [
+        "docs/BILLING-AND-ACCESS.md"
+      ],
+      "risk": "high",
+      "last_verified": "2026-10-21",
+      "max_age_days": 14,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-004",
+      "topic": "isolation",
+      "claim": "同一账户下多个 Bot 共用文件、Cookie、浏览器登录和命令行凭据",
+      "official_url": "https://docs.x.ai/grok-bot/computer-and-apps",
+      "local_documents": [
+        "docs/SECURITY.md",
+        "docs/CAPABILITY-MATRIX.md"
+      ],
+      "risk": "critical",
+      "last_verified": "2026-10-21",
+      "max_age_days": 30,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-005",
+      "topic": "approval",
+      "claim": "审批不可撤销先前已执行的动作；高影响操作需审阅目标和参数",
+      "official_url": "https://docs.x.ai/grok-bot/approvals-security-and-privacy",
+      "local_documents": [
+        "docs/APPROVAL-RUNBOOK.md"
+      ],
+      "risk": "critical",
+      "last_verified": "2026-10-21",
+      "max_age_days": 30,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-006",
+      "topic": "authentication",
+      "claim": "密码、双因素与验证码等敏感步骤应由本人通过 Take over 完成",
+      "official_url": "https://docs.x.ai/grok-bot/get-started",
+      "local_documents": [
+        "guides/START-HERE.md"
+      ],
+      "risk": "critical",
+      "last_verified": "2026-10-21",
+      "max_age_days": 30,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-007",
+      "topic": "routines",
+      "claim": "单 Bot 例程数、最近运行记录及运行间隔存在官方规则，应逐次核实",
+      "official_url": "https://docs.x.ai/grok-bot/skills-routines-and-automations",
+      "local_documents": [
+        "docs/CAPABILITY-MATRIX.md"
+      ],
+      "risk": "high",
+      "last_verified": "2026-10-21",
+      "max_age_days": 30,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-008",
+      "topic": "gradual-rollout",
+      "claim": "Teach a task 可能逐步开放，并非所有账户都能看到",
+      "official_url": "https://docs.x.ai/grok-bot/skills-routines-and-automations",
+      "local_documents": [
+        "docs/CAPABILITY-MATRIX.md"
+      ],
+      "risk": "medium",
+      "last_verified": "2026-10-21",
+      "max_age_days": 45,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-009",
+      "topic": "team-bots",
+      "claim": "共享 Team Bot 与向个人分发 Bot 模板的权限及可见范围不同",
+      "official_url": "https://docs.x.ai/grok-bot/team-bots",
+      "local_documents": [
+        "docs/CAPABILITY-MATRIX.md"
+      ],
+      "risk": "high",
+      "last_verified": "2026-10-21",
+      "max_age_days": 30,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-010",
+      "topic": "devices",
+      "claim": "Grok Bot 桌面及移动端支持范围和最低系统版本应以官方页面为准",
+      "official_url": "https://docs.x.ai/grok-bot/faq",
+      "local_documents": [
+        "docs/CAPABILITY-MATRIX.md"
+      ],
+      "risk": "medium",
+      "last_verified": "2026-10-21",
+      "max_age_days": 45,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-011",
+      "topic": "data-deletion",
+      "claim": "删除 Bot 与清理共享云电脑登录状态、文件是两个不同操作",
+      "official_url": "https://docs.x.ai/grok-bot/faq",
+      "local_documents": [
+        "docs/SECURITY.md"
+      ],
+      "risk": "critical",
+      "last_verified": "2026-10-21",
+      "max_age_days": 30,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    },
+    {
+      "id": "C-012",
+      "topic": "automation-safety",
+      "claim": "例程测试可能涉及真实外部动作，不能默认理解为隔离沙盒",
+      "official_url": "https://docs.x.ai/grok-bot/skills-routines-and-automations",
+      "local_documents": [
+        "docs/OPERATIONS-PLAYBOOK.md"
+      ],
+      "risk": "critical",
+      "last_verified": "2026-10-21",
+      "max_age_days": 30,
+      "evidence_level": "L1_official_documentation",
+      "product_account_tested": false
+    }
+  ]
+}

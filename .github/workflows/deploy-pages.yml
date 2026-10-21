@@ -1,0 +1,48 @@
+name: Deploy website to GitHub Pages
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+concurrency:
+  group: pages
+  cancel-in-progress: false
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate source claims and generated assets
+        run: |
+          python3 scripts/check_claims.py
+          python3 scripts/build_content.py
+          python3 scripts/export_docs.py
+          python3 scripts/build_extras.py
+          git diff --exit-code -- data/catalog.js data/catalog.json data/extras.js data/extras.json docs/COMPLETE-GUIDE.md docs/PROMPT-LIBRARY.md
+      - name: Run static tests and JavaScript syntax checks
+        run: |
+          python3 -m unittest discover -s tests -v
+          node --check app.js
+          node --check data/catalog.js
+          node --check data/extras.js
+  deploy:
+    needs: verify
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload website artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: '.'
+      - name: Deploy website
+        id: deployment
+        uses: actions/deploy-pages@v4

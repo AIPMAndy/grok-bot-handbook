@@ -1,0 +1,28 @@
+name: Check guide quality
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify source claims and generated file consistency
+        run: |
+          python3 scripts/check_claims.py
+          python3 scripts/build_content.py
+          python3 scripts/export_docs.py
+          python3 scripts/build_extras.py
+          git diff --exit-code -- data/catalog.js data/catalog.json data/extras.js data/extras.json docs/COMPLETE-GUIDE.md docs/PROMPT-LIBRARY.md
+      - name: Test structured data and site references
+        run: python3 -m unittest discover -s tests -v
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check data/catalog.js
+          node --check data/extras.js

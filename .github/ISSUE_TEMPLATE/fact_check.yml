@@ -1,0 +1,24 @@
+name: 官方功能 / 计费事实纠错
+description: 指出过时或没有证据的声明
+title: "[FACT] "
+labels: [documentation]
+body:
+  - type: input
+    id: source
+    attributes:
+      label: 官方来源链接
+      placeholder: https://docs.x.ai/...
+    validations:
+      required: true
+  - type: textarea
+    id: old
+    attributes:
+      label: 当前仓库的说法及准确位置
+    validations:
+      required: true
+  - type: textarea
+    id: suggested
+    attributes:
+      label: 建议的更正与核查日期
+    validations:
+      required: true

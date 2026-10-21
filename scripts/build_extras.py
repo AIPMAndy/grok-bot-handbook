@@ -1,0 +1,30 @@
+"""Generate supplemental troubleshooting and preflight data; no external runtime dependencies."""
+from pathlib import Path
+import json
+R=Path(__file__).resolve().parents[1]
+D='https://docs.x.ai/grok-bot/'
+symptoms=[
+ dict(id='access',label='找不到 Grok Bot / 显示无权限',severity='高',intro='先判断套餐体系，再判断登录账号是否匹配。',steps=['打开当前的官方计费权益矩阵，区分新版 Premium/Super/Ultra 与旧版 Cursor / SuperGrok 关联。','使用正确的账户或组织 SSO 登录，核查 Grok Bot Access 与账号关联状态。','确认不是 The X Subscription Plus/Free 或普通 X Premium 被误当成有权限。','仍无权限时保留错误文字与套餐信息（脱敏），联系官方支持。'],source='https://cursor.com/help/grok-bot/plans',action='先确认套餐，暂停付费操作'),
+ dict(id='login',label='登录跳转卡住 / Cursor 认证失败',severity='中',intro='不要靠反复重装或发验证码给 Bot 来解决。',steps=['保持 Grok Bot 客户端打开，在浏览器完成同一账户的官方登录。','返回应用；若没有自动切回，手动回到客户端并重试登录按钮。','组织 SSO/Legacy Privacy Mode 需走组织规定的认证和隐私设置流程。','记录客户端版本、系统版本与错误文字，寻求官方排障。'],source=D+'troubleshooting',action='确认登录成功而非仅“已打开浏览器”'),
+ dict(id='billing',label='额度耗尽 / 额外收费担忧',severity='高',intro='先控制支出与自动化，而不是继续盲目运行。',steps=['识别套餐是新版共享周池还是旧版关联权益。','进入实时 Billing / Weekly usage 查看剩余额度、重置与额外使用设置。','暂停高频 Routine，先审查是否存在重复重跑或不必要的任务。','保存脱敏的实际费用记录，未确认前不启用额外充值或自动加额。'],source='https://cursor.com/help/grok-bot/plans',action='暂停可能产生费用的任务'),
+ dict(id='computer',label='云端电脑连不上 / Bot 一直卡住',severity='中',intro='按最小破坏顺序恢复，Reset 放最后。',steps=['检查审批卡、网页登录和 CAPTCHA 是否在等待人工处理。','尝试 Retry / 重开会话 / 重启应用 / 更新客户端。','按照官方说明尝试 Recover computer 或 Update Bot’s Computer。','仅在接受可能失去未同步工作后考虑 Reset，并先保留错误与重要成果。'],source=D+'troubleshooting',action='不要直接点击 Reset'),
+ dict(id='routine',label='Routine 不运行 / 运行两次',severity='高',intro='先检查触发与幂等性，避免重复外部操作。',steps=['检查 Routine Enabled、时区、所有者和近几次运行记录。','检查是否因插件授权过期、网页变化、额度或待审批卡而失败。','重复运行先暂停例程，核对重复触发、重试、Webhook 与唯一键。','用安全测试输入复跑；所有发送、发布、付款、删除先人工批准。'],source=D+'skills-routines-and-automations',action='先暂停、再核对日志'),
+ dict(id='plugin',label='插件连接失败 / 网站反复要求登录',severity='中',intro='确认访问权限与网页身份，不能绕过 CAPTCHA。',steps=['核对 Connect apps / Plugins 是否安装并且授权有效。','使用 Take over 真人输入密码、验证码，完成 CAPTCHA 后交还控制。','检查连接器是否受团队管理员策略限制，是否登录了错误账号。','尝试只读任务判断问题是否解决；不扩大无关的应用权限。'],source=D+'computer-and-apps',action='最小授权并真人登录'),
+ dict(id='approval',label='审批卡过期 / 操作被拒',severity='高',intro='找清楚目标与规则，再请求重新生成操作。',steps=['检查审批卡具体对象、动作、参数和后果。','旧卡过期时不要用“永久允许”来绕过核对；让 Bot 重新提交窄范围操作。','查看 Auto Review 是否有 Ask first 的匹配规则，注意团队规则优先。','对敏感操作优先 Allow once 或明确拒绝。'],source=D+'approvals-security-and-privacy',action='不批准不明目标'),
+ dict(id='files',label='附件无法读取 / 输出文件不见了',severity='中',intro='先核查格式、权限、版本与确实存在的交付文件。',steps=['核对附件是否上传完成、有无加密、格式与大小限制。','确认 Bot 读的是本次上传的文件版本，要求回报文件名与记录数量。','让 Bot 给出下载链接、文件路径或可审计的结果位置。','避免直接发完整敏感资料，先在脱敏测试文件上验证。'],source=D+'files-and-results',action='不重新上传敏感原文'),
+ dict(id='botx',label='X 上 @bot 没有回复',severity='低',intro='入口有账号、地域和内容限制，未回复不代表已收到任务。',steps=['确认 Grok 与 X 账号已按官方要求关联，且有自己的 Bot。','核对所在账户登记地区是否支持 X 上 @bot；VPN 地理位置不是判据。','检查帖子是否附带视频/GIF、同时 @grok 或未实际提及 @bot。','打开 Grok Bot 客户端确认任务是否收到；不要重复轰炸发帖。'],source=D+'tag-on-x',action='先检查官方适用地区'),
+ dict(id='privacy',label='担心删除 Bot 后数据仍保留',severity='高',intro='删除 Bot 不等于云端所有文件与授权一起消失。',steps=['列出 Bots、共享云电脑文件、Cookies/登录会话、插件和例程。','先备份合法需要保留的成果，并撤销不再需要的应用授权。','按官方说明管理 Bot 删除、例程删除、云电脑数据与团队权限。','不在公开 Issue 上传私密截图；必要时咨询团队管理员或官方支持。'],source=D+'approvals-security-and-privacy',action='单独核对残留授权')
+]
+preflight=[
+ ('plan','我已确认套餐、用量池和可接受的额外费用'),
+ ('scope','我只连接任务真正需要的数据和应用'),
+ ('privacy','输入数据已授权，含个人信息的资料已脱敏'),
+ ('sources','任务目标、数据来源、输出与验收标准写清楚'),
+ ('approval','外发、付款、发布、删除、权限与生产操作均先审阅'),
+ ('fallback','缺失数据、网页变化和重复运行都有停止/回滚策略'),
+ ('audit','知道在哪里查看运行记录，并有人负责抽样核验')
+]
+x={'meta':{'updated':'2026-10-21','evidence':'官方资料核对 + 作者编辑；非作者产品实测','source':'docs.x.ai/grok-bot'},'diagnostics':symptoms,'preflight':[{'id':i,'label':l} for i,l in preflight]}
+(R/'data/extras.json').write_text(json.dumps(x,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(R/'data/extras.js').write_text('window.GROK_EXTRA = '+json.dumps(x,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
+print('Extras generated:',len(symptoms),'diagnostics;',len(preflight),'preflight checks')
