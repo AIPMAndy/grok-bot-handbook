@@ -20,6 +20,10 @@
 
 </div>
 
+**想找 Grok Bot 中文教程、AI Agent 中文教程？** 这份免费开源的攻略用中文讲清楚 Grok Bot 怎么开通、怎么让它替你干活、怎么管好权限：26 章操作教程、40 套任务指令、36 条 FAQ，每条关键结论都附官方来源。这是非官方教程。
+
+*English: a free, unofficial Chinese tutorial for Grok Bot and AI agents, with 26 chapters, 40 task prompts and 36 FAQs.*
+
 ## 这份攻略讲什么
 
 [Grok Bot](https://x.ai/bot) 是 xAI 的 AI Agent 产品：一台持久的云端电脑，加上应用插件、Bot、Skill、Routine、Team Bot 和协同工作。它和 Grok 普通聊天、xAI API、第三方同名脚本都不是一回事。
@@ -113,15 +117,48 @@ python3 -m http.server 8000
 - 发现错误请提 Issue。涉及套餐权益的，请附官方日期和出处；截图先遮掉敏感信息。
 - 不要在公开案例里放客户姓名、私聊、密码、Token、违规采集的数据，也不要编造效果。
 
-## 作者
+## 常见问题 FAQ
 
-**AI 酋长 Andy**，前腾讯 / 百度 AI 产品专家、大模型独角兽 VP。
+### Grok Bot 是什么？
 
-教程全部免费，不用加微信也能看完。如果你有具体的 AI 工作流要落地，或想聊求职、AI 增长陪跑：
+Grok Bot 是 xAI 的 AI Agent 产品：一台持久的云端电脑，加上应用插件、Bot、Skill、Routine、Team Bot 和协同工作。它和 Grok 普通聊天、xAI API、第三方同名脚本都不是一回事。
 
-微信 **`AIPMAndy`**（备注「Grok Bot 攻略」）· [个人官网](https://metaver.vip/) · [咨询与陪跑服务](https://metaver.vip/services) · [X @AIPMAndy](https://x.com/AIPMAndy) · [Telegram @AIPMAndy](https://t.me/AIPMAndy)
+### 哪些订阅包含 Grok Bot？
 
-咨询是独立、可选的服务。
+按本攻略核验时的官方说明，新版 The X Subscription Premium / Super / Ultra 包含 Grok Bot，Plus / Free 不包含。付款前请看 [官方实时计划页](https://cursor.com/help/grok-bot/plans) 和 [计费防坑指南](docs/BILLING-AND-ACCESS.md)。
+
+### 新手第一天该做什么？
+
+先读、再起草、最后才外发。第一次只用公开或已授权的数据，让它分析和起草，不让它替你发出去。可以照着 [10 分钟入门](guides/START-HERE.md) 和 [7 天计划](guides/7-DAY-PLAN.md) 走。
+
+### 什么时候可以开长期 Routine？
+
+跑通一次，换个输入再跑一次，过完 7 项上线安全检查以后再开。
+
+### 这份 AI Agent 中文教程收费吗？
+
+免费、开源（MIT）。网站是纯静态的，不用注册，也不要 API Key，进度和收藏只存在你自己的浏览器里。
+
+<!-- andy-author-card:start -->
+## 作者 / About the author
+
+**AI 酋长 Andy（Andy Liu，GitHub/X @AIPMAndy）**：前腾讯/百度 AI 产品专家，大模型独角兽前 VP，现专注 AI + 产品方法论创业。
+
+可以找我聊求职咨询、AI 增长和副业陪跑，服务范围和费用先沟通确认。咨询是独立、可选的服务，教程不用加微信也能看完，详见 [咨询与陪跑服务](https://metaver.vip/services)。
+
+微信 `AIPMAndy`（备注「Grok Bot 攻略」）· [X @AIPMAndy](https://x.com/AIPMAndy) · [Telegram @AIPMAndy](https://t.me/AIPMAndy) · [个人官网 metaver.vip](https://metaver.vip/) · [Grok Bot 中文攻略](https://aipmandy.github.io/grok-bot-handbook/)
+
+*AI Chief Andy (Andy Liu, @AIPMAndy on GitHub and X) is a former Tencent and Baidu AI product expert and former VP at an LLM unicorn, now a serial entrepreneur focused on AI and product methodology.*
+
+### 作者的其他项目
+
+- [Meta Muse 中文攻略](https://github.com/AIPMAndy/muse-guide)：Meta Muse 个人 AI Agent 中文实战攻略
+- [AndySoul](https://github.com/AIPMAndy/AndySoul)：CLAUDE.md / AGENTS.md 规则模板，让 Claude Code、Codex、Cursor 少犯错
+- [DNA Memory](https://github.com/AIPMAndy/dna-memory)：Claude Code、Codex 共用的本地 AI Agent 记忆 MCP
+- [OpenClaw Skills 中文精选](https://github.com/AIPMAndy/awesome-openclaw-skills-CN)：2868 个 OpenClaw Skills 分类整理，附国产模型接入指南
+- [FreeToken](https://github.com/AIPMAndy/FreeToken)：免费 AI API、免费大模型 API 额度合集
+
+<!-- andy-author-card:end -->
 
 ## 许可与声明
 

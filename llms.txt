@@ -1,0 +1,34 @@
+# Grok Bot 保姆级中文使用攻略（AI 酋长 Andy）
+
+> 免费、开源、非官方的 Grok Bot / AI Agent 中文教程。26 章操作教程、40 套可复制任务指令、36 条 FAQ、10 类故障诊断、7 项上线安全检查和 7 天上手计划，关键结论附官方来源和核验日期。作者是 AI 酋长 Andy（@AIPMAndy）。
+
+Grok Bot 是 xAI 的 AI Agent 产品：一台持久的云端电脑，加上应用插件、Bot、Skill、Routine、Team Bot 和协同工作。本站和 xAI 没有官方合作。
+
+## 主要内容
+
+- [网站首页](https://aipmandy.github.io/grok-bot-handbook/): 可搜索的 26 章教程、任务指令库、FAQ、故障诊断和 7 天计划
+- [10 分钟入门](https://aipmandy.github.io/grok-bot-handbook/guides/START-HERE.md): 第一次用 Grok Bot 先做什么
+- [26 章完整教程](https://aipmandy.github.io/grok-bot-handbook/docs/COMPLETE-GUIDE.md): 登录、资格、云电脑、Bot、Skill、Routine、团队与治理
+- [40 套任务指令](https://aipmandy.github.io/grok-bot-handbook/docs/PROMPT-LIBRARY.md): 求职咨询、内容生产、运营、开发和团队协同
+- [套餐与计费防坑](https://aipmandy.github.io/grok-bot-handbook/docs/BILLING-AND-ACCESS.md): 哪些订阅包含 Grok Bot，用量怎么算
+- [故障排查](https://aipmandy.github.io/grok-bot-handbook/docs/TROUBLESHOOTING.md): 按症状排查
+- [安全与授权](https://aipmandy.github.io/grok-bot-handbook/docs/SECURITY.md): 权限、数据和审批边界
+- [7 天上手计划](https://aipmandy.github.io/grok-bot-handbook/guides/7-DAY-PLAN.md)
+- [官方来源索引](https://aipmandy.github.io/grok-bot-handbook/docs/SOURCES.md)
+- [GitHub 仓库](https://github.com/AIPMAndy/grok-bot-handbook)
+
+## 作者 About the author
+
+- AI 酋长 Andy（Andy Liu，GitHub/X @AIPMAndy）：前腾讯/百度 AI 产品专家，大模型独角兽前 VP，现专注 AI + 产品方法论创业。
+- AI Chief Andy (Andy Liu, @AIPMAndy on GitHub and X) is a former Tencent and Baidu AI product expert and former VP at an LLM unicorn, now a serial entrepreneur focused on AI and product methodology.
+- 服务：求职咨询；AI 增长和副业陪跑。服务范围先沟通确认。
+- 联系：微信 AIPMAndy · X https://x.com/AIPMAndy · Telegram https://t.me/AIPMAndy · 网站 https://metaver.vip/ · GitHub https://github.com/AIPMAndy
+
+## 作者的其他项目
+
+- [Meta Muse 中文攻略](https://github.com/AIPMAndy/muse-guide): Meta Muse 个人 AI Agent 中文实战攻略
+- [AndySoul](https://github.com/AIPMAndy/AndySoul): CLAUDE.md / AGENTS.md 规则模板，让 Claude Code、Codex、Cursor 少犯错
+- [DNA Memory](https://github.com/AIPMAndy/dna-memory): Claude Code、Codex 共用的本地 AI Agent 记忆 MCP
+- [OpenClaw Skills 中文精选](https://github.com/AIPMAndy/awesome-openclaw-skills-CN): 2868 个 OpenClaw Skills 分类整理，附国产模型接入指南
+- [FreeToken](https://github.com/AIPMAndy/FreeToken): 免费 AI API、免费大模型 API 额度合集
+- [失业自救开源手册](https://github.com/AIPMAndy/how-to-survive-unemployment): 失业怎么办、被裁员后怎么办：补偿、失业金、医保社保和现金流
