@@ -1,40 +1,201 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0d111b">
-<title>Grok Bot 保姆级使用攻略｜从零搭建 AI 员工团队 · AI 酋长 Andy</title>
-<meta name="description" content="免费开源的 Grok Bot 中文保姆级教程：26 章操作指南、40 套可复制提示词、36 个常见问题、7 天实战计划、官方来源与安全边界。作者 AI 酋长 Andy。">
-<meta name="robots" content="index,follow"><meta property="og:title" content="Grok Bot 保姆级使用攻略 · 让 AI 真正替你做事"><meta property="og:description" content="26章保姆级教程 · 40套实战模板 · 7天上手 · 免费开源"><meta property="og:type" content="website"><meta property="og:url" content="https://aipmandy.github.io/grok-bot-handbook/"><meta property="og:image" content="https://aipmandy.github.io/grok-bot-handbook/assets/social-preview.png">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="Grok Bot 保姆级使用攻略 · 免费开源"><meta name="twitter:image" content="https://aipmandy.github.io/grok-bot-handbook/assets/social-preview.png"><link rel="canonical" href="https://aipmandy.github.io/grok-bot-handbook/"><link rel="icon" href="assets/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f6f4f0">
+<script>
+(function () {
+  var theme = 'light';
+  try {
+    var saved = localStorage.getItem('gbh-theme');
+    if (saved === 'light' || saved === 'dark') theme = saved;
+    else if (window.matchMedia('(prefers-color-scheme: dark)').matches) theme = 'dark';
+  } catch (e) {}
+  document.documentElement.setAttribute('data-theme', theme);
+  var meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) meta.setAttribute('content', theme === 'dark' ? '#101011' : '#f6f4f0');
+})();
+</script>
+<title>Grok Bot 保姆级使用攻略｜26 章中文开源指南 · AI 酋长 Andy</title>
+<meta name="description" content="免费开源的中文 Grok Bot 指南：26 章、40 套任务模板、36 条常见问题、7 天上手。账号权限、Bot、Skill、Routine 与排错。请用自己的账号验证，别把全部权限交出去。作者 AI 酋长 Andy。">
+<meta name="robots" content="index,follow">
+<meta property="og:title" content="Grok Bot 保姆级使用攻略 · AI 酋长 Andy">
+<meta property="og:description" content="免费开源。26 章、40 套任务模板、36 条常见问题、7 天上手。账号权限、Bot、Skill、Routine 与排错。请用自己的账号验证。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aipmandy.github.io/grok-bot-handbook/">
+<meta property="og:image" content="https://aipmandy.github.io/grok-bot-handbook/assets/social-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Grok Bot 保姆级使用攻略 · AI 酋长 Andy">
+<meta name="twitter:description" content="免费开源的中文指南。26 章、40 套任务模板、36 条常见问题、7 天上手。">
+<meta name="twitter:image" content="https://aipmandy.github.io/grok-bot-handbook/assets/social-preview.png">
+<link rel="canonical" href="https://aipmandy.github.io/grok-bot-handbook/">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 <a class="skip" href="#main">跳转到正文</a>
 <div class="site-shell">
-<header class="topbar"><a class="brand" href="#top" aria-label="回到首页"><span class="brand-symbol">✳</span><span><b>GROK BOT</b><small>THE FIELD GUIDE</small></span></a><nav aria-label="主导航"><a href="#guide">保姆级教程</a><a href="#prompts">提示词库</a><a href="#roadmap">7天实战</a><a href="#diagnose">故障诊断</a><a href="#faq">FAQ</a><a class="nav-contact" href="#contact">联系 Andy <span aria-hidden="true">↗</span></a></nav></header>
+<header class="topbar-wrap">
+  <div class="topbar wrap">
+    <a class="brand" href="#top" aria-label="回到首页">
+      <span class="brand-symbol" aria-hidden="true">G</span>
+      <span><b>Grok Bot</b><small>保姆级攻略</small></span>
+    </a>
+    <nav class="primary-nav" aria-label="主导航">
+      <a href="#guide">教程</a>
+      <a href="#prompts">模板</a>
+      <a href="#roadmap">7 天</a>
+      <a href="#diagnose">排错</a>
+      <a href="#faq">FAQ</a>
+      <a class="nav-contact" href="#contact">联系</a>
+    </nav>
+    <div class="top-tools">
+      <button id="themeToggle" class="theme-toggle" type="button" aria-label="切换浅色或深色"><span class="label"></span></button>
+      <a class="author-mark" href="https://metaver.vip/" target="_blank" rel="noopener noreferrer">
+        <span class="seal" aria-hidden="true">A</span>
+        <span class="author-mark-name">AI 酋长 Andy</span>
+      </a>
+    </div>
+  </div>
+</header>
 <main id="main">
-<section class="hero" id="top"><div class="hero-copy"><div class="eyebrow"><span class="tiny-dot"></span> 2026.10 · V3 VERIFIABLE EDITION <span class="slash">/</span> FREE & OPEN SOURCE</div><h1>别再只跟 AI 聊天。<br><em>让它开始交付。</em></h1><p class="hero-sub">Grok Bot 保姆级使用攻略</p><p class="hero-desc">从安装登录、创建第一个 Bot，到 Skills、Routines、Team Bot、共享云电脑和安全审批。每一步都有操作、验收标准与官方来源。</p><div class="hero-actions"><a class="btn btn-primary" href="#first-step">从这里开始 <span aria-hidden="true">↗</span></a><a class="btn btn-ghost" href="#prompts">复制即用的 40 套任务模板 <span aria-hidden="true">→</span></a></div><div class="trust-line"><span>✓ 官方文档核对 / 未宣称产品实测</span><span>✓ 免费教程无需 API Key</span><span>✓ 资料免费开放</span></div></div><div class="hero-visual"><div class="visual-top"><span class="signal"><i></i> WORKFLOW STUDIO</span><span>NO. 003 / ANDY</span></div><div class="visual-heading">YOUR AI<br><span>TEAM</span></div><div class="flowcard first"><div class="flow-avatar">01</div><div><strong>Research Bot</strong><small>查资料 · 保留来源</small></div><span class="flow-state">READY</span></div><div class="flow-link"></div><div class="flowcard second"><div class="flow-avatar">02</div><div><strong>Writing Bot</strong><small>整理初稿 · 标注待核实</small></div><span class="flow-state">DRAFT</span></div><div class="flow-link"></div><div class="flowcard third"><div class="flow-avatar">03</div><div><strong>Review Bot</strong><small>核查风险 · 等你批准</small></div><span class="flow-state caution">APPROVAL</span></div><div class="visual-foot">THE SYSTEM DOES THE WORK. YOU KEEP CONTROL.</div></div></section>
-<section class="stats"><div><strong id="statChapters">26</strong><span>章入门与进阶</span></div><div><strong id="statPrompts">40</strong><span>条可复制任务模板</span></div><div><strong>07</strong><span>天上手练习</span></div><div><strong>0</strong><span>后端与账号要求</span></div></section>
-<section class="notice-band"><span class="notice-icon">i</span><p><strong>先认准官方产品。</strong>本站讲的是 <a href="https://x.ai/bot" target="_blank" rel="noopener noreferrer">xAI / Cursor 官方 Grok Bot</a>，不是 Grok 普通聊天、xAI API 或 GitHub 上的第三方同名脚本。功能开放、订阅和计费可能调整，请以官方界面为准。</p></section>
-<aside class="billing-update" aria-label="最新订阅资格提醒"><span class="billing-label">重要更新 / 先别买错套餐</span><div><strong>新版 Premium / Super / Ultra 与旧版 Cursor / SuperGrok 的 Grok Bot 权益不同。</strong><p>官方最新计费矩阵显示：The X Subscription Plus 和 Free 不包含 Grok Bot；新版使用共享每周用量池。订阅前核对，不依赖旧版宣传。</p></div><a href="https://cursor.com/help/grok-bot/plans" target="_blank" rel="noopener noreferrer">打开官方权益矩阵 ↗</a></aside>
-<section class="first-step" id="first-step" aria-labelledby="firstStepTitle">
-  <div class="first-step-heading"><div><span class="section-label">00 / ACCESS CHECK</span><h2 id="firstStepTitle">先判断有没有资格，<br>再决定怎么上手。</h2><p>一分钟确认账户路径。无需登录本站，也不会收集你的套餐信息。</p></div><a href="docs/BILLING-AND-ACCESS.md" target="_blank" rel="noopener noreferrer">完整订阅防坑指南 ↗</a></div>
+<section class="hero wrap" id="top">
+  <div class="hero-copy">
+    <div class="eyebrow"><span class="tiny-dot"></span> 2026.10 · 免费开源 · 非官方</div>
+    <h1>很多人指望 Agent 全天干活，接任务和管权限还没学会。</h1>
+    <p class="hero-sub">Grok Bot 保姆级使用攻略</p>
+    <p class="hero-desc">免费、开源的中文指南。26 章、40 套任务模板、36 条常见问题，再加一份 7 天上手计划。账号权限、Bot、Skill、Routine 和排错都写在里面。请用你自己的真实账号看稳不稳。看完这篇，别把全部控制权交出去。</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#first-step">从这里开始</a>
+      <a class="btn btn-star" href="https://github.com/AIPMAndy/grok-bot-handbook" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上给本仓库标星"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>在 GitHub 标星</a>
+    </div>
+    <p class="trust-line">非 xAI / Cursor 官方，未获背书 · 免费，无需 API Key · 请自行用真实账号验证</p>
+  </div>
+  <aside class="hero-panel" aria-label="这份指南覆盖什么">
+    <p class="hero-panel-kicker">目录</p>
+    <ol>
+      <li><span>01</span><div><strong>账号权限</strong><small>先核对资格、用量和审批</small></div></li>
+      <li><span>02</span><div><strong>Bot</strong><small>先接一个低风险的真实任务</small></div></li>
+      <li><span>03</span><div><strong>Skill</strong><small>换一份输入，再跑一次</small></div></li>
+      <li><span>04</span><div><strong>Routine</strong><small>上线前做 7 项检查</small></div></li>
+      <li><span>05</span><div><strong>排错</strong><small>36 条 FAQ，10 类症状</small></div></li>
+    </ol>
+    <p class="hero-panel-foot">26 章。看完用自己的账号验证，别把全部权限交出去。</p>
+  </aside>
+</section>
+<section class="stats wrap" aria-label="资料规模">
+  <div><strong id="statChapters">26</strong><span>章入门与进阶</span></div>
+  <div><strong id="statPrompts">40</strong><span>条可复制任务模板</span></div>
+  <div><strong>07</strong><span>天上手练习</span></div>
+  <div><strong>0</strong><span>后端与账号要求</span></div>
+</section>
+<section class="notice-band wrap"><span class="notice-icon" aria-hidden="true">i</span><p><strong>先认准官方产品。</strong>本站讲的是 <a href="https://x.ai/bot" target="_blank" rel="noopener noreferrer">xAI / Cursor 官方 Grok Bot</a>，不是 Grok 普通聊天、xAI API 或 GitHub 上的第三方同名脚本。功能开放、订阅和计费可能调整，请以官方界面为准。</p></section>
+<aside class="billing-update wrap" aria-label="最新订阅资格提醒"><span class="billing-label">重要更新 / 先别买错套餐</span><div><strong>新版 Premium / Super / Ultra 与旧版 Cursor / SuperGrok 的 Grok Bot 权益不同。</strong><p>官方最新计费矩阵显示：The X Subscription Plus 和 Free 不包含 Grok Bot；新版使用共享每周用量池。订阅前核对，不依赖旧版宣传。</p></div><a href="https://cursor.com/help/grok-bot/plans" target="_blank" rel="noopener noreferrer">打开官方权益矩阵 ↗</a></aside>
+<section class="first-step wrap" id="first-step" aria-labelledby="firstStepTitle">
+  <div class="first-step-heading"><div><span class="section-label">资格</span><h2 id="firstStepTitle">先判断有没有资格，<br>再决定怎么上手。</h2><p>一分钟确认账户路径。无需登录本站，也不会收集你的套餐信息。</p></div><a href="docs/BILLING-AND-ACCESS.md" target="_blank" rel="noopener noreferrer">完整订阅防坑指南 ↗</a></div>
   <div class="first-step-layout"><div class="first-step-panel"><label for="planPath">你目前拥有哪一种订阅？</label><select id="planPath" aria-describedby="planFootnote"><option value="unsure">我还不确定 / 还没购买</option><option value="new-paid">The X Subscription Premium / Super / Ultra</option><option value="new-free">The X Subscription Plus / Free</option><option value="legacy-cursor">旧版付费 Cursor 个人 / Teams</option><option value="legacy-link">旧版 SuperGrok / X Premium+ 关联</option><option value="enterprise">企业或团队统一配置</option></select><p class="plan-footnote" id="planFootnote">套餐名称很像，尤其 The X Subscription Premium 与旧版 X Premium 不同。</p></div>
   <div class="first-step-result" id="planResult" role="status" aria-live="polite"><span class="plan-result-eyebrow" id="planStatus">先核对</span><h3 id="planTitle">没必要急着买会员。</h3><p id="planDescription">先登录官方账户后台确认套餐名称、Grok Bot 权益、每周用量，再决定是否订阅或关联已有账户。</p><a id="planSource" href="https://cursor.com/help/grok-bot/plans" target="_blank" rel="noopener noreferrer">查看官方权益与账单说明 ↗</a></div></div>
-  <div class="first-step-foot">🔎 来源：<a href="https://docs.x.ai/x-subscription/grok-bot" target="_blank" rel="noopener noreferrer">The X Subscription 官方说明</a> · <a href="https://cursor.com/help/grok-bot/plans" target="_blank" rel="noopener noreferrer">旧版与新版权益矩阵</a>。核对日期 2026-10-21；具体权益以本人账户实时状态为准。</div>
+  <div class="first-step-foot">来源：<a href="https://docs.x.ai/x-subscription/grok-bot" target="_blank" rel="noopener noreferrer">The X Subscription 官方说明</a> · <a href="https://cursor.com/help/grok-bot/plans" target="_blank" rel="noopener noreferrer">旧版与新版权益矩阵</a>。核对日期 2026-10-21；具体权益以本人账户实时状态为准。</div>
 </section>
-<section class="no-js-guide"><noscript><p>当前浏览器未启用 JavaScript。仍可直接查看 <a href="docs/COMPLETE-GUIDE.md">26 章完整文字版</a>、<a href="docs/PROMPT-LIBRARY.md">40 套指令库</a>及<a href="docs/BILLING-AND-ACCESS.md">套餐说明</a>。</p></noscript></section>
-<section class="section" id="guide"><div class="section-label">01 / START HERE</div><div class="section-heading"><div><h2>从零到上手，<br>一步都不跳。</h2><p>先完成一个真实任务，再谈自动化。每章带着目标、操作步骤和验收标准。</p></div><div class="meta">READ → DO → VERIFY</div></div><div class="toolbar"><label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">搜索教程</span><input id="chapterSearch" placeholder="搜安装、登录、Routine、审批、报错…" autocomplete="off"></label><select id="chapterFilter" aria-label="选择教程类别"><option value="全部">全部分类</option></select><label class="checkbox-small"><input type="checkbox" id="chapterUndone">只看未完成</label></div><div id="chapterCount" class="result-count" role="status"></div><div class="lesson-layout"><aside class="lesson-aside"><p>YOUR ROADMAP</p><div id="chapterNav" class="lesson-nav"></div><div class="progress-box"><span>阅读进度</span><strong id="courseProgressText">0 / 26</strong><div class="progress-track"><div id="courseProgressBar"></div></div><small>仅保存在当前浏览器</small></div></aside><div id="chapterCards" class="lesson-cards"></div></div></section>
-<section class="contact-banner"><div><span class="section-label">ANDY / CAREER & AI</span><h3>教程先免费学。<br>落地碰到具体问题，再来找我。</h3><p>AI 工作流、职业发展、求职陪跑，都可以先看我的官网服务说明。</p></div><div class="contact-banner-actions"><button type="button" class="btn btn-primary" data-copy-wechat>复制微信 AIPMAndy ↗</button><a href="https://metaver.vip/services" target="_blank" rel="noopener noreferrer">查看官网咨询服务 →</a></div></section>
-<section class="section prompt-section" id="prompts"><div class="section-label">02 / COPY, ADAPT, RUN</div><div class="section-heading"><div><h2>40 套实操指令，<br>复制就能开始。</h2><p>每个模板都写明输入资料、预期产物与审批边界。替换花括号里的变量即可。</p></div><span class="meta">PROMPTS THAT DO REAL WORK</span></div><div id="promptCategories" class="filter-chips" role="group" aria-label="按场景分类"></div><div class="toolbar"><label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">搜索模板</span><input id="promptSearch" placeholder="搜求职、公众号、X、销售、GitHub、邮箱…"></label><label class="checkbox-small"><input type="checkbox" id="savedOnly">只看收藏</label><button class="btn-plain" id="resetPrompts">清空筛选</button></div><div id="promptCount" class="result-count" role="status"></div><div id="promptCards" class="prompt-grid"></div></section>
-<section id="roadmap" class="roadmap-section"><div class="section-label">03 / THE FIRST 7 DAYS</div><div class="section-heading"><div><h2>7 天跑通一次<br>AI 员工闭环。</h2><p>只衡量真实交付物与错误率，不为打卡而打卡。</p></div><button class="btn btn-outline" type="button" id="exportProgress">导出我的学习记录 ↓</button></div><div id="roadmapCards" class="roadmap-grid"></div><p class="privacy-foot">✓ 完成记录与收藏仅存本地浏览器。不会被网站上传；清理缓存会丢失。</p></section>
-<section class="section safety" id="safety"><div class="section-label">04 / SECURITY FIRST</div><div class="section-heading"><div><h2>真的能替你操作，<br>就更需要边界。</h2><p>会操作系统的 Agent，默认不应该获得所有权限。</p></div></div><div class="safety-grid"><div class="safety-card"><span>01 / ACCOUNT</span><h3>最小授权</h3><p>只连接本次工作需要的工具。不同 Bot 可能共享云端电脑中的文件和登录状态。</p></div><div class="safety-card"><span>02 / APPROVAL</span><h3>危险动作要审批</h3><p>发邮件、发帖、购买、删除、权限修改、生产变更，先生成预览，再让本人决定。</p></div><div class="safety-card"><span>03 / PROOF</span><h3>交付必须能核对</h3><p>让 Bot 留下来源、时间、文件和操作状态。说“完成了”不代表事实已经核实。</p></div></div><p class="safety-sources"><a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy" target="_blank" rel="noopener noreferrer">阅读官方安全与审批说明 ↗</a></p></section>
-<section class="section faq-section" id="faq"><div class="section-label">05 / TROUBLESHOOTING</div><div class="section-heading"><div><h2>出了问题，<br>直接查这里。</h2><p>36 个常见问题，附官方说明。优先使用破坏性最小的处理方法。</p></div></div><label class="search-wrap faq-search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索问题</span><input id="faqSearch" placeholder="搜索 404、订阅、验证码、用量、Routine…"></label><div id="faqList" class="faq-list"></div></section>
-<section class="section diagnose-section" id="diagnose"><div class="section-label">06 / DIAGNOSE & REPAIR</div><div class="section-heading"><div><h2>出错了？<br>按症状定位。</h2><p>不靠猜。先选择看到的现象，按最小破坏路径处理，并核对官方说明。</p></div><span class="meta">DIAGNOSE → VERIFY → RECOVER</span></div><div class="diagnose-layout"><div class="diagnose-picker"><label for="symptomSelect">你现在遇到了什么问题？</label><select id="symptomSelect" aria-label="选择故障症状"></select><div class="diagnose-intro" id="diagnoseIntro"></div><div class="diagnose-links"><a id="diagnoseSource" href="https://docs.x.ai/grok-bot/troubleshooting" target="_blank" rel="noopener noreferrer">查看对应官方说明 ↗</a></div></div><div id="diagnoseSteps" class="diagnose-steps" aria-live="polite"></div></div></section>
-<section class="section preflight-section" id="preflight"><div class="section-label">07 / PREFLIGHT CHECK</div><div class="section-heading"><div><h2>上线 Routine 之前，<br>先做这 7 项检查。</h2><p>检查全部完成，仅说明准备条件更充分；不等于任务自动安全，更不代表已获外部操作授权。</p></div></div><div class="preflight-layout"><div id="preflightChecks" class="preflight-list"></div><div class="preflight-score"><span class="preflight-kicker">YOUR READINESS</span><strong id="preflightCount">0 / 7</strong><div class="progress-track"><div id="preflightBar"></div></div><p id="preflightAdvice" aria-live="polite">先保持只读或草稿模式，逐项补充安全边界。</p><a href="docs/APPROVAL-RUNBOOK.md" target="_blank" rel="noopener noreferrer">打开完整审批清单 ↗</a></div></div></section>
-<section class="section sources" id="sources"><div class="section-label">08 / SOURCE OF TRUTH</div><div class="section-heading"><div><h2>官方来源，<br>全部留给你核对。</h2><p>教程整理日期：2026-10-21。功能、资格、价格和 UI 可能随版本调整；不将模板示例冒充真实交付。</p></div></div><div id="sourcesList" class="sources-grid"></div><div class="sources-note">独立中文教育项目，非 xAI / Cursor 官方网站，未获得其背书。本文为原创操作整理，官方文档内容与产品名称归原权利人所有。</div></section>
-<section class="final-contact" id="contact"><div class="final-contact-content"><div><div class="section-label">09 / CONTACT ANDY</div><h2>内容免费开源。<br><em>有项目，我们再聊。</em></h2><p>我是 AI 酋长 Andy。围绕 AI 工作流、求职咨询、职业成长与个人 IP，提供实际项目的咨询及陪跑服务。</p><p class="fineprint">扫码/添加并非必须；本站教程不设付费门槛。咨询服务独立收费，是否合作由你决定。</p></div><div class="contact-card"><span class="contact-kicker">WECHAT / 微信</span><strong>AIPMAndy</strong><p>添加时可备注「Grok Bot 攻略」</p><button type="button" data-copy-wechat class="btn btn-primary">复制我的微信号 ↗</button><div class="card-divider"></div><span class="contact-kicker">OFFICIAL SITE / 官网</span><a class="contact-domain" href="https://metaver.vip/" target="_blank" rel="noopener noreferrer">metaver.vip ↗</a><a class="contact-services" href="https://metaver.vip/services" target="_blank" rel="noopener noreferrer">查看全部咨询 / 陪跑服务 →</a></div></div></section>
-</main><footer><div><span class="brand-symbol">✳</span> <strong>AI 酋长 Andy</strong><small>Grok Bot Handbook · MIT License</small></div><div><a href="https://metaver.vip/" target="_blank" rel="noopener noreferrer">官网</a><a href="https://github.com/AIPMAndy/grok-bot-handbook" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="#top">回到顶部 ↑</a></div></footer></div>
+<section class="no-js-guide wrap"><noscript><p>当前浏览器未启用 JavaScript。仍可直接查看 <a href="docs/COMPLETE-GUIDE.md">26 章完整文字版</a>、<a href="docs/PROMPT-LIBRARY.md">40 套指令库</a>及<a href="docs/BILLING-AND-ACCESS.md">套餐说明</a>。</p></noscript></section>
+<section class="section wrap" id="guide">
+  <div class="section-heading"><div><div class="section-label">教程</div><h2>从零到上手，一步都不跳。</h2><p>先完成一个真实任务，再谈自动化。每章带着目标、操作步骤和验收标准。</p></div><div class="meta">先读，再做，再核对</div></div>
+  <div class="toolbar"><label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">搜索教程</span><input id="chapterSearch" placeholder="搜安装、登录、Routine、审批、报错…" autocomplete="off"></label><select id="chapterFilter" aria-label="选择教程类别"><option value="全部">全部分类</option></select><label class="checkbox-small"><input type="checkbox" id="chapterUndone">只看未完成</label></div>
+  <div id="chapterCount" class="result-count" role="status"></div>
+  <div class="lesson-layout"><aside class="lesson-aside"><p>目录</p><div id="chapterNav" class="lesson-nav"></div><div class="progress-box"><span>阅读进度</span><strong id="courseProgressText">0 / 26</strong><div class="progress-track"><div id="courseProgressBar"></div></div><small>仅保存在当前浏览器</small></div></aside><div id="chapterCards" class="lesson-cards"></div></div>
+</section>
+<section class="contact-banner wrap"><div><span class="section-label">作者</span><h3>教程先免费学。<br>碰到具体问题，再来找我。</h3><p>AI 工作流、职业发展、求职陪跑，可以先看官网的服务说明。</p></div><div class="contact-banner-actions"><button type="button" class="btn btn-primary" data-copy-wechat>复制微信 AIPMAndy</button><a href="https://metaver.vip/services" target="_blank" rel="noopener noreferrer">查看官网咨询服务</a></div></section>
+<section class="section prompt-section wrap" id="prompts">
+  <div class="section-heading"><div><div class="section-label">任务模板</div><h2>40 套实操指令，复制就能开始。</h2><p>每个模板都写明输入资料、预期产物与审批边界。替换花括号里的变量即可。</p></div><span class="meta">先改变量，再运行</span></div>
+  <div id="promptCategories" class="filter-chips" role="group" aria-label="按场景分类"></div>
+  <div class="toolbar"><label class="search-wrap"><span aria-hidden="true">⌕</span><span class="sr-only">搜索模板</span><input id="promptSearch" placeholder="搜求职、公众号、X、销售、GitHub、邮箱…"></label><label class="checkbox-small"><input type="checkbox" id="savedOnly">只看收藏</label><button class="btn-plain" id="resetPrompts" type="button">清空筛选</button></div>
+  <div id="promptCount" class="result-count" role="status"></div>
+  <div id="promptCards" class="prompt-grid"></div>
+</section>
+<section id="roadmap" class="roadmap-section section wrap">
+  <div class="section-heading"><div><div class="section-label">7 天</div><h2>7 天跑通一次闭环。</h2><p>只看真实交付物和错误，不为打卡而打卡。</p></div><button class="btn btn-outline" type="button" id="exportProgress">导出我的学习记录</button></div>
+  <div id="roadmapCards" class="roadmap-grid"></div>
+  <p class="privacy-foot">完成记录和收藏只存在这台浏览器里。网站不会上传；清理缓存会丢掉。</p>
+</section>
+<section class="section safety wrap" id="safety">
+  <div class="section-heading"><div><div class="section-label">安全</div><h2>真的能替你操作，就更要有边界。</h2><p>会操作系统的 Agent，默认不该拿到所有权限。</p></div></div>
+  <div class="safety-grid"><div class="safety-card"><span>01</span><h3>最小授权</h3><p>只连接这次工作需要的工具。不同 Bot 可能共享云端电脑里的文件和登录状态。</p></div><div class="safety-card"><span>02</span><h3>危险动作要审批</h3><p>发邮件、发帖、购买、删除、改权限、动生产环境，先出预览，再由你决定。</p></div><div class="safety-card"><span>03</span><h3>交付必须能核对</h3><p>让 Bot 留下来源、时间、文件和操作状态。它说“完成了”，不代表事实已经核实。</p></div></div>
+  <p class="safety-sources"><a href="https://docs.x.ai/grok-bot/approvals-security-and-privacy" target="_blank" rel="noopener noreferrer">阅读官方安全与审批说明 ↗</a></p>
+</section>
+<section class="section faq-section wrap" id="faq">
+  <div class="section-heading"><div><div class="section-label">常见问题</div><h2>出了问题，直接查这里。</h2><p>36 个常见问题，附官方说明。优先用破坏性最小的处理方法。</p></div></div>
+  <label class="search-wrap faq-search"><span aria-hidden="true">⌕</span><span class="sr-only">搜索问题</span><input id="faqSearch" placeholder="搜索 404、订阅、验证码、用量、Routine…"></label>
+  <div id="faqList" class="faq-list"></div>
+</section>
+<section class="section diagnose-section wrap" id="diagnose">
+  <div class="section-heading"><div><div class="section-label">故障</div><h2>出错了，按症状定位。</h2><p>先选你看到的现象，再按最小破坏的路径处理，并核对官方说明。</p></div><span class="meta">定位，核对，再恢复</span></div>
+  <div class="diagnose-layout"><div class="diagnose-picker"><label for="symptomSelect">你现在遇到了什么问题？</label><select id="symptomSelect" aria-label="选择故障症状"></select><div class="diagnose-intro" id="diagnoseIntro"></div><div class="diagnose-links"><a id="diagnoseSource" href="https://docs.x.ai/grok-bot/troubleshooting" target="_blank" rel="noopener noreferrer">查看对应官方说明 ↗</a></div></div><div id="diagnoseSteps" class="diagnose-steps" aria-live="polite"></div></div>
+</section>
+<section class="section preflight-section wrap" id="preflight">
+  <div class="section-heading"><div><div class="section-label">上线前</div><h2>上线 Routine 之前，先做这 7 项检查。</h2><p>检查全部完成，只说明准备更充分。不等于任务自动安全，也不代表已经获准做外部操作。</p></div></div>
+  <div class="preflight-layout"><div id="preflightChecks" class="preflight-list"></div><div class="preflight-score"><span class="preflight-kicker">准备情况</span><strong id="preflightCount">0 / 7</strong><div class="progress-track"><div id="preflightBar"></div></div><p id="preflightAdvice" aria-live="polite">先保持只读或草稿模式，逐项补充安全边界。</p><a href="docs/APPROVAL-RUNBOOK.md" target="_blank" rel="noopener noreferrer">打开完整审批清单 ↗</a></div></div>
+</section>
+<section class="section sources wrap" id="sources">
+  <div class="section-heading"><div><div class="section-label">来源</div><h2>官方来源，留给你核对。</h2><p>教程整理日期：2026-10-21。功能、资格、价格和界面可能随版本调整。模板示例不是真实交付记录。</p></div></div>
+  <div id="sourcesList" class="sources-grid"></div>
+  <p class="sources-note">独立中文教育项目，非 xAI / Cursor 官方网站，未获得其背书。本文为原创操作整理，官方文档内容与产品名称归原权利人所有。</p>
+</section>
+<section class="final-contact" id="contact">
+  <div class="final-contact-content wrap">
+    <div>
+      <div class="section-label">作者</div>
+      <h2>AI 酋长 Andy</h2>
+      <p>前腾讯、百度 AI 产品经理。内容免费开源。AI 工作流、求职咨询、职业成长，先看官网说明，再决定要不要聊。</p>
+      <p class="fineprint">教程不设付费门槛。咨询单独收费，合作与否你自己定。</p>
+      <p class="unofficial">本站是独立中文教程，与 xAI / Cursor 官方网站无关，也没有官方背书。</p>
+    </div>
+    <div class="contact-card">
+      <ul class="contact-list">
+        <li><span>微信</span><strong>AIPMAndy</strong><button type="button" data-copy-wechat>复制</button></li>
+        <li><span>X</span><a href="https://x.com/AIPMAndy" target="_blank" rel="noopener noreferrer">@AIPMAndy</a></li>
+        <li><span>Telegram</span><a href="https://t.me/AIPMAndy" target="_blank" rel="noopener noreferrer">@AIPMAndy</a></li>
+        <li><span>官网</span><a href="https://metaver.vip/" target="_blank" rel="noopener noreferrer">metaver.vip</a></li>
+      </ul>
+      <p class="contact-note">加微信时可备注「Grok Bot 攻略」</p>
+      <a class="contact-services" href="https://metaver.vip/services" target="_blank" rel="noopener noreferrer">咨询与陪跑服务</a>
+    </div>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="footer-inner wrap">
+    <div><strong>AI 酋长 Andy</strong><small>Grok Bot 保姆级攻略 · MIT · 非官方</small></div>
+    <div class="footer-links"><a href="https://github.com/AIPMAndy/grok-bot-handbook" target="_blank" rel="noopener noreferrer">GitHub 标星</a><a href="https://x.com/AIPMAndy" target="_blank" rel="noopener noreferrer">X</a><a href="https://t.me/AIPMAndy" target="_blank" rel="noopener noreferrer">Telegram</a><a href="https://metaver.vip/" target="_blank" rel="noopener noreferrer">官网</a><a href="#top">回到顶部</a></div>
+  </div>
+</footer>
+</div>
 <dialog id="chapterDialog" aria-labelledby="modalTitle"><div class="dialog-container"><button class="modal-close" aria-label="关闭详情" type="button" id="closeDialog">×</button><div id="modalBody"></div></div></dialog>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
-<script src="data/catalog.js"></script><script src="data/extras.js"></script><script src="app.js"></script>
-</body></html>
+<script src="data/catalog.js"></script>
+<script src="data/extras.js"></script>
+<script src="app.js"></script>
+<script>
+(function () {
+  var key = 'gbh-theme';
+  var root = document.documentElement;
+  var btn = document.getElementById('themeToggle');
+  function current() { return root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'; }
+  function paint(theme) {
+    root.setAttribute('data-theme', theme);
+    var meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', theme === 'dark' ? '#101011' : '#f6f4f0');
+    if (btn) btn.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
+  }
+  if (btn) {
+    btn.addEventListener('click', function () {
+      var next = current() === 'dark' ? 'light' : 'dark';
+      paint(next);
+      try { localStorage.setItem(key, next); } catch (e) {}
+    });
+  }
+  paint(current());
+})();
+</script>
+</body>
+</html>
