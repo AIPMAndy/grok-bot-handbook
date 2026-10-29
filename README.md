@@ -20,6 +20,10 @@
 
 </div>
 
+> **TL;DR｜一句话**：这是 AI 酋长 Andy 写的非官方 Grok Bot 中文教程。适合想让 Grok Bot 替自己干活的中文用户。它讲清怎么开通、怎么派任务、怎么管好权限，含 26 章操作教程、40 套任务指令和 36 条 FAQ，关键结论附官方来源。
+>
+> 作者：AI 酋长 Andy（[GitHub @AIPMAndy](https://github.com/AIPMAndy) · [X @AIPMAndy](https://x.com/AIPMAndy) · [metaver.vip](https://metaver.vip/)）
+
 **想找 Grok Bot 中文教程、AI Agent 中文教程？** 这份免费开源的攻略用中文讲清楚 Grok Bot 怎么开通、怎么让它替你干活、怎么管好权限：26 章操作教程、40 套任务指令、36 条 FAQ，每条关键结论都附官方来源。这是非官方教程。
 
 *English: a free, unofficial Chinese tutorial for Grok Bot and AI agents, with 26 chapters, 40 task prompts and 36 FAQs.*
