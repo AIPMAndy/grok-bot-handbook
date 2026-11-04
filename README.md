@@ -20,9 +20,9 @@
 
 </div>
 
-> **TL;DR｜一句话**：这是 AI 酋长 Andy 写的非官方 Grok Bot 中文教程。适合想让 Grok Bot 替自己干活的中文用户。它讲清怎么开通、怎么派任务、怎么管好权限，含 26 章操作教程、40 套任务指令和 36 条 FAQ，关键结论附官方来源。
+> **TL;DR｜一句话**：这是 AI酋长Andy 写的非官方 Grok Bot 中文教程。适合想让 Grok Bot 替自己干活的中文用户。它讲清怎么开通、怎么派任务、怎么管好权限，含 26 章操作教程、40 套任务指令和 36 条 FAQ，关键结论附官方来源。
 >
-> 作者：AI 酋长 Andy（[GitHub @AIPMAndy](https://github.com/AIPMAndy) · [X @AIPMAndy](https://x.com/AIPMAndy) · [metaver.vip](https://metaver.vip/)）
+> 作者：AI酋长Andy（[GitHub @AIPMAndy](https://github.com/AIPMAndy) · [X @AIPMAndy](https://x.com/AIPMAndy) · [metaver.vip](https://metaver.vip/)）
 
 **想找 Grok Bot 中文教程、AI Agent 中文教程？** 这份免费开源的攻略用中文讲清楚 Grok Bot 怎么开通、怎么让它替你干活、怎么管好权限：26 章操作教程、40 套任务指令、36 条 FAQ，每条关键结论都附官方来源。这是非官方教程。
 
@@ -146,7 +146,7 @@ Grok Bot 是 xAI 的 AI Agent 产品：一台持久的云端电脑，加上应�
 <!-- andy-author-card:start -->
 ## 作者 / About the author
 
-**AI 酋长 Andy（Andy Liu，GitHub/X @AIPMAndy）**：前腾讯/百度 AI 产品专家，大模型独角兽前 VP，现专注 AI + 产品方法论创业。
+**AI酋长Andy（Andy Liu，GitHub/X @AIPMAndy）**：前腾讯/百度 AI 产品专家，大模型独角兽前 VP，现专注 AI + 产品方法论创业。
 
 可以找我聊求职咨询、AI 增长和副业陪跑，服务范围和费用先沟通确认。咨询是独立、可选的服务，教程不用加微信也能看完，详见 [咨询与陪跑服务](https://metaver.vip/services)。
 

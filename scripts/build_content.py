@@ -253,7 +253,7 @@ links=list({entry['url']:entry for entry in links}.values())
 for c in chapters: c['evidence']='官方功能说明 / 编辑整理，未宣称作者实测'
 for p in cases: p['evidence']='可复用示例（未声明实测成功）'
 
-output={'meta':{'title':'Grok Bot 保姆级使用攻略','subtitle':'从第一次安装，到真正拥有一支能交付工作的 AI 员工团队','updated':'2026-10-21','version':'2.0.0','audience':'小白 · 创作者 · 求职咨询 · 独立开发者 · 团队','author':'AI 酋长 Andy','wechat':'AIPMAndy','homepage':'https://metaver.vip','services':'https://metaver.vip/services','repo':'https://github.com/AIPMAndy/grok-bot-handbook','site':'https://aipmandy.github.io/grok-bot-handbook/'},'chapters':chapters,'playbooks':cases,'faq':[{'q':q,'a':a,'source':source} for q,a,source in faqs],'roadmap':[{'day':d,'title':t,'detail':p} for d,t,p in roadmap],'sources':links}
+output={'meta':{'title':'Grok Bot 保姆级使用攻略','subtitle':'从第一次安装，到真正拥有一支能交付工作的 AI 员工团队','updated':'2026-10-21','version':'2.0.0','audience':'小白 · 创作者 · 求职咨询 · 独立开发者 · 团队','author':'AI酋长Andy','wechat':'AIPMAndy','homepage':'https://metaver.vip','services':'https://metaver.vip/services','repo':'https://github.com/AIPMAndy/grok-bot-handbook','site':'https://aipmandy.github.io/grok-bot-handbook/'},'chapters':chapters,'playbooks':cases,'faq':[{'q':q,'a':a,'source':source} for q,a,source in faqs],'roadmap':[{'day':d,'title':t,'detail':p} for d,t,p in roadmap],'sources':links}
 (ROOT/'data/catalog.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
 (ROOT/'data/catalog.js').write_text('window.GROK_GUIDE = '+json.dumps(output,ensure_ascii=False,separators=(',',':'))+';\n',encoding='utf-8')
 print(f"Generated: {len(chapters)} chapters, {len(cases)} playbooks, {len(faqs)} FAQs, {len(links)} official links")

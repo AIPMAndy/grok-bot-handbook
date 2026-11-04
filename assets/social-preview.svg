@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
   <rect width="1200" height="630" fill="#141311"/>
   <rect width="8" height="630" fill="#c6a36a"/>
-  <text x="88" y="148" font-family="Inter, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, WenQuanYi Micro Hei, sans-serif" font-size="22" font-weight="600" fill="#c6a36a">AI 酋长 Andy</text>
+  <text x="88" y="148" font-family="Inter, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, WenQuanYi Micro Hei, sans-serif" font-size="22" font-weight="600" fill="#c6a36a">AI酋长Andy</text>
   <text x="1112" y="148" text-anchor="end" font-family="Inter, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, WenQuanYi Micro Hei, sans-serif" font-size="20" fill="#a39e96">免费开源 · 非官方</text>
   <text x="88" y="268" font-family="Inter, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, WenQuanYi Micro Hei, sans-serif" font-size="84" font-weight="600" fill="#f7f4ee">Grok Bot</text>
   <text x="88" y="348" font-family="Inter, PingFang SC, Hiragino Sans GB, Microsoft YaHei, Noto Sans SC, WenQuanYi Micro Hei, sans-serif" font-size="52" font-weight="600" fill="#f7f4ee">保姆级使用攻略</text>
