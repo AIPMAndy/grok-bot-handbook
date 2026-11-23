@@ -5,7 +5,8 @@ This check validates a curated ledger; it cannot verify truth in real-time or us
 """
 import json, sys
 from pathlib import Path
-from datetime import date
+from datetime import date, datetime
+from zoneinfo import ZoneInfo
 from urllib.parse import urlparse
 R=Path(__file__).resolve().parents[1]
 F=R/'data/claims.json'
@@ -13,7 +14,8 @@ DOMAINS={'docs.x.ai','cursor.com','x.ai','help.x.com'}
 REQUIRED={'subscription','billing','legacy-access','isolation','approval','authentication','routines','team-bots','data-deletion','automation-safety'}
 
 def validate(today=None):
- today=today or date.today()
+ # Editorial review dates follow the project's Asia/Shanghai timezone, not runner UTC.
+ today=today or datetime.now(ZoneInfo('Asia/Shanghai')).date()
  obj=json.loads(F.read_text(encoding='utf-8'))
  claims=obj['claims']; errors=[]; ids=set(); topics=set()
  for item in claims:
