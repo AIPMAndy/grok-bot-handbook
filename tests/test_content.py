@@ -1,5 +1,5 @@
 """Deterministic quality gates: public guide is not a substitute for product account E2E."""
-import json, unittest, re
+import json, unittest, re, hashlib, subprocess
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 from html.parser import HTMLParser
@@ -82,7 +82,7 @@ class ContentTest(unittest.TestCase):
   self.assertIn('免费',h)
  def test_no_sensitive_private_keys(self):
   for p in R.rglob('*'):
-   if not p.is_file() or p.suffix.lower() in ('.png','.jpg','.jpeg','.zip','.pyc','.svg') or '__pycache__' in p.parts or '.git' in p.parts:continue
+   if not p.is_file() or p.suffix.lower() in ('.png','.jpg','.jpeg','.zip','.pdf','.pyc','.svg') or '__pycache__' in p.parts or '.git' in p.parts:continue
    data=p.read_text(encoding='utf-8-sig')
    # Detect long accidental key-shaped strings; human examples with small placeholders are fine.
    self.assertNotRegex(data,r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----')
@@ -111,7 +111,7 @@ class ContentTest(unittest.TestCase):
   from datetime import date
   sys.path.insert(0,str(R/'scripts'))
   from check_claims import validate
-  errors,n=validate(date(2026,10,21))
+  errors,n=validate(date(2026,11,24))
   self.assertEqual(n,12)
   self.assertFalse(errors,errors)
  def test_claim_ledger_expires_high_risk_assertions(self):
@@ -119,8 +119,38 @@ class ContentTest(unittest.TestCase):
   from datetime import date
   sys.path.insert(0,str(R/'scripts'))
   from check_claims import validate
-  errors,n=validate(date(2026,11,30))
+  errors,n=validate(date(2026,12,20))
   self.assertTrue(any('STALE' in x for x in errors))
+ def test_claim_review_audit_page_and_source_integrity(self):
+  claims=json.loads((R/'data/claims.json').read_text(encoding='utf-8'))
+  self.assertEqual(claims['reviewed_at'],'2026-11-24')
+  self.assertEqual(len(claims['claims']),12)
+  for item in claims['claims']:
+   self.assertEqual(item['last_verified'],'2026-11-24')
+   self.assertTrue(item['verification_note'])
+   self.assertTrue(item['official_url'].startswith(('https://docs.x.ai/','https://cursor.com/')))
+   self.assertFalse(item['product_account_tested'])
+  h=(R/'source-audit.html').read_text(encoding='utf-8')
+  self.assertIn('data/claims.json',h)
+  self.assertIn('https://aipmandy.github.io/grok-bot-handbook/source-audit.html',h)
+  self.assertIn('application/ld+json',h)
+  self.assertIn('https://www.a6no1.cn/',h)
+  self.assertIn('https://metaver.vip/services',h)
+  self.assertIn('AIPMAndy',h)
+  self.assertIn('source-audit.html',(R/'index.html').read_text(encoding='utf-8'))
+  self.assertIn('source-audit.html',(R/'sitemap.xml').read_text(encoding='utf-8'))
+ def test_source_audit_inline_javascript_compiles(self):
+  html=(R/'source-audit.html').read_text(encoding='utf-8')
+  parts=re.findall(r'<script>(.*?)</script>',html,re.S)
+  self.assertEqual(len(parts),1)
+  check=subprocess.run(['node','--check','-'],input=parts[0],text=True,capture_output=True)
+  self.assertEqual(check.returncode,0,check.stderr)
+ def test_original_pdf_matches_published_edition(self):
+  edition=json.loads((R/'pdf/edition.json').read_text(encoding='utf-8'))
+  pdf=(R/edition['pdf_path']).read_bytes()
+  self.assertEqual(hashlib.sha256(pdf).hexdigest(),edition['sha256'])
+  self.assertEqual(len(pdf),edition['bytes'])
+  self.assertEqual(edition['pages'],97)
  def test_pages_publish_blocked_by_failed_tests(self):
   wf=(R/'.github/workflows/deploy-pages.yml').read_text(encoding='utf-8')
   self.assertRegex(wf,r'(?m)^  deploy:\n    needs: verify')

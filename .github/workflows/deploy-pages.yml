@@ -46,3 +46,11 @@ jobs:
       - name: Deploy website
         id: deployment
         uses: actions/deploy-pages@v4
+
+  verify-live:
+    needs: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Independently fetch the public site and compare source SHA-256
+        run: python3 scripts/verify_live.py

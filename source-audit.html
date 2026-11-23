@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grok Bot 官方来源核验工作台｜12 条关键主张 · AI 酋长 Andy</title>
+<meta name="description" content="逐条查看 Grok Bot 的订阅、共享电脑、安全审批、自动化和团队权限来源。显示真实官方文档核验日、复核周期、证据等级与本地检查记录，可搜索筛选和导出。">
+<meta name="robots" content="index,follow">
+<link rel="canonical" href="https://aipmandy.github.io/grok-bot-handbook/source-audit.html">
+<meta property="og:type" content="website"><meta property="og:title" content="Grok Bot 官方来源核验工作台"><meta property="og:description" content="12 条关键主张的官方原文、核验日期、风险等级与复核清单。非账号实测。"><meta property="og:url" content="https://aipmandy.github.io/grok-bot-handbook/source-audit.html">
+<meta name="theme-color" content="#f7f7f5">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Grok Bot 官方来源核验工作台","url":"https://aipmandy.github.io/grok-bot-handbook/source-audit.html","inLanguage":"zh-CN","dateModified":"2026-11-24","isPartOf":{"@type":"WebSite","url":"https://aipmandy.github.io/grok-bot-handbook/"},"author":{"@type":"Person","name":"AI 酋长 Andy","url":"https://metaver.vip/"},"publisher":{"@type":"Organization","name":"星觉科技","url":"https://www.a6no1.cn/"},"about":{"@type":"Thing","name":"Grok Bot 官方功能与订阅核验"},"isAccessibleForFree":true}</script>
+<style>
+:root{color-scheme:light;--ink:#18191b;--soft:#60656a;--bg:#f7f7f5;--line:#d8dbda;--panel:#fff;--blue:#2458a8}
+*{box-sizing:border-box}body{margin:0;font:16px/1.68 system-ui,-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft Yahei",sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--blue);text-underline-offset:3px}button,input,select{font:inherit}button,select{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #629df5;outline-offset:3px}
+.skip{position:absolute;left:-9999px;top:6px}.skip:focus{left:12px;z-index:9;background:#fff;padding:8px}
+.wrap{width:min(1090px,calc(100% - 40px));margin-inline:auto}.top{border-bottom:1px solid var(--line);background:var(--panel)}.nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:68px}.wordmark{font-size:15px;letter-spacing:.04em;font-weight:750;text-decoration:none;color:var(--ink)}.navlink{font-size:14px}
+.kicker{font-size:12px;font-weight:730;letter-spacing:.12em;color:var(--soft);text-transform:uppercase}.hero{padding:64px 0 34px;border-bottom:1px solid var(--line)}h1{font-size:clamp(30px,4.5vw,52px);line-height:1.16;letter-spacing:-.045em;margin:16px 0 20px;max-width:850px}h2{font-size:24px;line-height:1.3;letter-spacing:-.025em}.lead{max-width:820px;font-size:17px;color:var(--soft);margin:0 0 20px}.note{max-width:850px;padding-left:16px;border-left:3px solid #6d7786;color:#51575c;font-size:14px}
+.metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:32px 0}.metric{background:#fff;border:1px solid var(--line);padding:20px}.metric strong{display:block;font-size:31px;line-height:1.3;font-variant-numeric:tabular-nums}.metric span{font-size:13px;color:var(--soft)}
+.toolbar{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:22px 0}.field label{display:block;font-size:13px;margin-bottom:5px;color:var(--soft);font-weight:650}.field input,.field select{min-height:47px;width:100%;border:1px solid #b5bab8;border-radius:6px;padding:9px 11px;background:#fff;color:var(--ink)}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin:14px 0 22px}.actions{display:flex;flex-wrap:wrap;gap:8px}.btn{border:1px solid #aeb3b2;background:#fff;color:var(--ink);min-height:44px;border-radius:6px;padding:8px 15px;text-decoration:none;font-weight:600;font-size:14px}.btn.primary{background:var(--ink);color:#fff;border-color:var(--ink)}.count{font-size:14px;color:var(--soft)}
+.cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;padding-bottom:48px}.claim{border:1px solid var(--line);background:#fff;border-radius:8px;padding:23px;min-width:0}.claim-top{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:#555d61;font-size:12px;font-weight:700;letter-spacing:.025em}.claim h3{font-size:20px;line-height:1.45;margin:12px 0;font-weight:720;letter-spacing:-.025em}.detail{color:var(--soft);font-size:13px;margin:8px 0}.source{overflow-wrap:anywhere}.tag{display:inline-block;padding:3px 8px;border:1px solid #bcc3c8;border-radius:4px}.overdue{border-color:#a26535;color:#854921}.claim .local{display:flex;gap:6px;align-items:center;margin-top:15px;padding-top:12px;border-top:1px solid #e7e8e7;font-size:13px}.local input{width:17px;height:17px}
+.empty{padding:28px;border:1px dashed var(--line);color:var(--soft)}.footer{border-top:1px solid var(--line);background:#fff;padding:28px 0 46px;font-size:14px}.footerlinks{display:flex;flex-wrap:wrap;gap:10px 20px}.footer p{max-width:840px;color:var(--soft)}
+@media(max-width:740px){.wrap{width:calc(100% - 28px)}.hero{padding:38px 0 20px}.metrics{gap:6px}.metric{padding:12px}.metric strong{font-size:24px}.toolbar{grid-template-columns:1fr}.cards{grid-template-columns:1fr}.claim{padding:18px}h1{letter-spacing:-.025em}}
+@media(prefers-reduced-motion:no-preference){.btn{transition:background-color .15s ease}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">跳转正文</a>
+<header class="top"><nav class="wrap nav" aria-label="导航"><a class="wordmark" href="index.html">GROK BOT / ANDY</a><a class="navlink" href="index.html">返回完整教程</a></nav></header>
+<main class="wrap" id="main">
+<section class="hero"><div class="kicker">Source intelligence / 官方证据追踪</div><h1>先核实来源，<br>再把工作交给 Bot。</h1>
+<p class="lead">订阅权益、审批规则、云电脑共享和 Routine 边界都会变。这里把 12 条关键主张和官方链接集中到一处，让你快速找到需要复核的地方。</p>
+<p class="note">日期仅代表本仓库编辑者检查公开官方文档的时间，不代表真实账户功能实测、每位用户均可使用或服务商承诺。个人「已读」状态只存在此浏览器，不会改变官方核验日期。文档可能随时更新。</p>
+</section>
+<section class="metrics" aria-label="资料概览"><div class="metric"><strong id="total">—</strong><span>可追溯主张</span></div><div class="metric"><strong id="stale">—</strong><span>超过复核窗口</span></div><div class="metric"><strong id="reviewed">—</strong><span>本机已读记录</span></div></section>
+<section aria-labelledby="audit-title"><h2 id="audit-title">逐条查看证据</h2><p class="detail">原始数据：<a href="data/claims.json">claims.json</a> · <a href="docs/FACT-CHECK-LEDGER.md">复核流程与证据等级</a> · 原 97 页 <a href="pdf/grok-bot-handbook-guide.pdf">PDF（2026-11-13）</a></p>
+<div class="toolbar"><div class="field"><label for="search">关键词或编号</label><input id="search" type="search" placeholder="例如：共享电脑 / C-004 / 权限" autocomplete="off"></div>
+<div class="field"><label for="risk">风险等级</label><select id="risk"><option value="">所有等级</option><option value="critical">关键风险</option><option value="high">高风险</option><option value="medium">中等风险</option></select></div>
+<div class="field"><label for="status">核验状态</label><select id="status"><option value="">全部</option><option value="overdue">需再次复核</option><option value="current">窗口内</option><option value="unread">我还没阅读</option></select></div></div>
+<div class="bar"><span id="count" class="count" aria-live="polite">正在读取来源台账…</span><div class="actions"><button class="btn" type="button" id="reset">重置筛选</button><button class="btn primary" type="button" id="export" disabled>导出当前 TXT 清单</button><button class="btn" type="button" id="clear">清空本机已读</button></div></div>
+<div class="cards" id="cards" aria-live="polite"></div><p class="empty" id="empty" hidden>没有符合条件的记录。可以重置筛选。</p>
+</section>
+</main>
+<footer class="footer"><div class="wrap"><strong>AI 酋长 Andy · 星觉科技</strong><p>非 xAI / Cursor 官方教程。只整理公开资料，建议每次执行高影响操作前重新核验权限及条款。实操服务独立提供，不承诺收益或成果。</p><div class="footerlinks"><span>微信 <strong>AIPMAndy</strong></span><button class="btn" type="button" id="copy">复制微信号</button><a href="https://metaver.vip/">个人官网</a><a href="https://www.a6no1.cn/">公司官网</a><a href="https://metaver.vip/services">咨询与陪跑服务</a><a href="https://github.com/AIPMAndy/grok-bot-handbook">GitHub 源码</a></div><p id="feedback" role="status" aria-live="polite"></p></div></footer>
+<script>
+'use strict';
+const $=id=>document.getElementById(id), KEY='grok-claims-read-v1';
+let records=[],shown=[],read=new Set();
+try{const arr=JSON.parse(localStorage.getItem(KEY)||'[]');if(Array.isArray(arr))read=new Set(arr.filter(x=>typeof x==='string'&&/^C-\d{3}$/.test(x)));}catch(_){}
+const official=u=>{try{const x=new URL(u);return x.protocol==='https:'&&['docs.x.ai','x.ai','cursor.com','help.x.com'].includes(x.hostname);}catch(_){return false;}};
+const daysAgo=s=>{const d=new Date(s+'T00:00:00Z');return Number.isFinite(d.getTime())?Math.floor((Date.now()-d.getTime())/86400000):Infinity;};
+function save(){try{localStorage.setItem(KEY,JSON.stringify([...read]));}catch(_){$('feedback').textContent='本机存储不可用，仅本页临时记录。';}}
+function text(tag,content,cls){const el=document.createElement(tag);el.textContent=content;if(cls)el.className=cls;return el;}
+function render(){
+const q=$('search').value.trim().toLowerCase(),risk=$('risk').value,status=$('status').value;
+shown=records.filter(c=>{const expired=daysAgo(c.last_verified)>c.max_age_days;return (!risk||c.risk===risk)&&(!q||[c.id,c.topic,c.claim,c.official_url].join(' ').toLowerCase().includes(q))&&(!status||(status==='overdue'&&expired)||(status==='current'&&!expired)||(status==='unread'&&!read.has(c.id)));});
+$('total').textContent=records.length;$('stale').textContent=records.filter(c=>daysAgo(c.last_verified)>c.max_age_days).length;$('reviewed').textContent=records.filter(c=>read.has(c.id)).length;
+$('count').textContent='显示 '+shown.length+' / '+records.length+' 条 · 风险与时间窗口不是事实真伪判断';
+$('empty').hidden=shown.length!==0;$('export').disabled=shown.length===0;
+const root=$('cards');root.replaceChildren();for(const c of shown){
+const item=document.createElement('article');item.className='claim';item.setAttribute('aria-label',c.id);
+const top=text('div',c.id+' · '+c.topic,'claim-top');const expired=daysAgo(c.last_verified)>c.max_age_days;top.append(text('span',expired?'需复核':'复核窗口内',expired?'tag overdue':'tag'));item.append(top,text('h3',c.claim));
+item.append(text('p','风险：'+({critical:'关键',high:'高',medium:'中'}[c.risk]||c.risk)+'　·　证据：官方文档 L1（无本人账号实测）','detail'));
+item.append(text('p','官方文档核验：'+c.last_verified+'　·　最长复核间隔：'+c.max_age_days+' 天','detail'));
+const p=text('p','','source');if(official(c.official_url)){const a=text('a','打开官方来源 ↗');a.href=c.official_url;a.target='_blank';a.rel='noopener noreferrer';p.append(a);}else p.textContent='来源链接待修复：'+c.official_url;item.append(p);
+const local=text('label','','local');const box=document.createElement('input');box.type='checkbox';box.checked=read.has(c.id);box.setAttribute('aria-label','标记 '+c.id+' 官方资料已阅读');box.addEventListener('change',()=>{if(box.checked)read.add(c.id);else read.delete(c.id);save();render();});local.append(box,text('span','我已阅读来源（仅本机标记，不代表官方重新核验）'));item.append(local);root.append(item);
+}}
+$('search').addEventListener('input',render);$('risk').addEventListener('change',render);$('status').addEventListener('change',render);
+$('reset').addEventListener('click',()=>{$('search').value='';$('risk').value='';$('status').value='';render();$('search').focus();});
+$('clear').addEventListener('click',()=>{if(read.size&&confirm('清空本机已读记录？此操作不会修改官方核验日期。')){read.clear();save();render();}});
+$('export').addEventListener('click',()=>{if(!shown.length)return;const lines=['Grok Bot 官方来源人工复核清单','导出时间：'+new Date().toISOString(),'说明：官方 L1 文档不代表作者账号实测；本机已读不是新官方核验。',''];for(const c of shown){lines.push(c.id+' | '+c.risk+' | '+c.topic,c.claim,'原核验日：'+c.last_verified+' | 最大间隔：'+c.max_age_days+'天 | 当前：'+(daysAgo(c.last_verified)>c.max_age_days?'需复核':'窗口内'),'官方来源：'+c.official_url,'本机已读：'+(read.has(c.id)?'是':'否'),'人工复核记录：________________','');}const blob=new Blob(['\ufeff'+lines.join('\n')],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='grok-bot-official-source-checklist.txt';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);$('feedback').textContent='已生成本地清单。';});
+$('copy').addEventListener('click',async()=>{try{await navigator.clipboard.writeText('AIPMAndy');$('feedback').textContent='微信号已复制：AIPMAndy';}catch(_){$('feedback').textContent='复制失败，请手动选择微信号 AIPMAndy。';}});
+fetch('data/claims.json',{cache:'no-cache'}).then(r=>{if(!r.ok)throw Error('HTTP '+r.status);return r.json();}).then(d=>{if(!Array.isArray(d.claims)||d.claims.length!==12)throw Error('数据结构异常');records=d.claims;render();}).catch(e=>{$('count').textContent='来源台账读取失败：'+e.message+'。请使用上方 claims.json 原始链接。';});
+</script>
+</body></html>

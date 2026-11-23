@@ -44,7 +44,7 @@
       <span><b>Grok Bot</b><small>保姆级攻略</small></span>
     </a>
     <nav class="primary-nav" aria-label="主导航">
-      <a href="#guide">教程</a>
+      <a href="#guide">教程</a><a href="source-audit.html">官方来源核验</a>
       <a href="#prompts">模板</a>
       <a href="#roadmap">7 天</a>
       <a href="#diagnose">排错</a>
@@ -69,9 +69,11 @@
     <p class="hero-desc">免费、开源的中文指南。26 章、40 套任务模板、36 条常见问题，再加一份 7 天上手计划。账号权限、Bot、Skill、Routine 和排错都写在里面。请用你自己的真实账号看稳不稳。看完这篇，别把全部控制权交出去。</p>
     <div class="hero-actions">
       <a class="btn btn-primary" href="#first-step">从这里开始</a>
+      <a class="btn btn-star" href="source-audit.html">核验 12 条官方主张</a>
+      <a class="btn btn-star" href="pdf/grok-bot-handbook-guide.pdf">下载 97 页 PDF</a>
       <a class="btn btn-star" href="https://github.com/AIPMAndy/grok-bot-handbook" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 上给本仓库标星"><svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="currentColor" d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.75.75 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Z"/></svg>在 GitHub 标星</a>
     </div>
-    <p class="trust-line">非 xAI / Cursor 官方，未获背书 · 免费，无需 API Key · 请自行用真实账号验证</p>
+    <p class="trust-line">非 xAI / Cursor 官方，未获背书 · 免费，无需 API Key · 官方资料复核日 2026-11-24；原 PDF 为 2026-11-13 版本；请自行用真实账号验证</p>
   </div>
   <aside class="hero-panel" aria-label="这份指南覆盖什么">
     <p class="hero-panel-kicker">目录</p>
@@ -92,7 +94,7 @@
   <div><strong>0</strong><span>后端与账号要求</span></div>
 </section>
 <section class="notice-band wrap"><span class="notice-icon" aria-hidden="true">i</span><p><strong>先认准官方产品。</strong>本站讲的是 <a href="https://x.ai/bot" target="_blank" rel="noopener noreferrer">xAI / Cursor 官方 Grok Bot</a>，不是 Grok 普通聊天、xAI API 或 GitHub 上的第三方同名脚本。功能开放、订阅和计费可能调整，请以官方界面为准。</p></section>
-<aside class="billing-update wrap" aria-label="最新订阅资格提醒"><span class="billing-label">重要更新 / 先别买错套餐</span><div><strong>新版 Premium / Super / Ultra 与旧版 Cursor / SuperGrok 的 Grok Bot 权益不同。</strong><p>官方最新计费矩阵显示：The X Subscription Plus 和 Free 不包含 Grok Bot；新版使用共享每周用量池。订阅前核对，不依赖旧版宣传。</p></div><a href="https://cursor.com/help/grok-bot/plans" target="_blank" rel="noopener noreferrer">打开官方权益矩阵 ↗</a></aside>
+<aside class="billing-update wrap" aria-label="最新订阅资格提醒"><span class="billing-label">重要更新 / 先别买错套餐</span><div><strong>新版 Premium / Super / Ultra 与旧版 Cursor / SuperGrok 的 Grok Bot 权益不同。</strong><p>2026-11-24 对照官方公开说明：The X Subscription Plus 和 Free 不包含 Grok Bot；新版使用共享每周用量池。订阅前请在官方账户复核，不依赖旧版宣传。</p></div><a href="https://docs.x.ai/x-subscription/grok-bot" target="_blank" rel="noopener noreferrer">打开新版官方权益说明 ↗</a></aside>
 <section class="first-step wrap" id="first-step" aria-labelledby="firstStepTitle">
   <div class="first-step-heading"><div><span class="section-label">资格</span><h2 id="firstStepTitle">先判断有没有资格，<br>再决定怎么上手。</h2><p>一分钟确认账户路径。无需登录本站，也不会收集你的套餐信息。</p></div><a href="docs/BILLING-AND-ACCESS.md" target="_blank" rel="noopener noreferrer">完整订阅防坑指南 ↗</a></div>
   <div class="first-step-layout"><div class="first-step-panel"><label for="planPath">你目前拥有哪一种订阅？</label><select id="planPath" aria-describedby="planFootnote"><option value="unsure">我还不确定 / 还没购买</option><option value="new-paid">The X Subscription Premium / Super / Ultra</option><option value="new-free">The X Subscription Plus / Free</option><option value="legacy-cursor">旧版付费 Cursor 个人 / Teams</option><option value="legacy-link">旧版 SuperGrok / X Premium+ 关联</option><option value="enterprise">企业或团队统一配置</option></select><p class="plan-footnote" id="planFootnote">套餐名称很像，尤其 The X Subscription Premium 与旧版 X Premium 不同。</p></div>
@@ -157,6 +159,7 @@
         <li><span>X</span><a href="https://x.com/AIPMAndy" target="_blank" rel="noopener noreferrer">@AIPMAndy</a></li>
         <li><span>Telegram</span><a href="https://t.me/AIPMAndy" target="_blank" rel="noopener noreferrer">@AIPMAndy</a></li>
         <li><span>官网</span><a href="https://metaver.vip/" target="_blank" rel="noopener noreferrer">metaver.vip</a></li>
+        <li><span>公司官网</span><a href="https://www.a6no1.cn/" target="_blank" rel="noopener noreferrer">星觉科技</a></li>
       </ul>
       <p class="contact-note">加微信时可备注「Grok Bot 攻略」</p>
       <a class="contact-services" href="https://metaver.vip/services" target="_blank" rel="noopener noreferrer">咨询与陪跑服务</a>
