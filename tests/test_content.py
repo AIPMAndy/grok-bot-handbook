@@ -1,5 +1,5 @@
 """Deterministic quality gates: public guide is not a substitute for product account E2E."""
-import json, unittest, re
+import json, unittest, re, hashlib, subprocess
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 from html.parser import HTMLParser
@@ -139,6 +139,18 @@ class ContentTest(unittest.TestCase):
   self.assertIn('AIPMAndy',h)
   self.assertIn('source-audit.html',(R/'index.html').read_text(encoding='utf-8'))
   self.assertIn('source-audit.html',(R/'sitemap.xml').read_text(encoding='utf-8'))
+ def test_source_audit_inline_javascript_compiles(self):
+  html=(R/'source-audit.html').read_text(encoding='utf-8')
+  parts=re.findall(r'<script>(.*?)</script>',html,re.S)
+  self.assertEqual(len(parts),1)
+  check=subprocess.run(['node','--check','-'],input=parts[0],text=True,capture_output=True)
+  self.assertEqual(check.returncode,0,check.stderr)
+ def test_original_pdf_matches_published_edition(self):
+  edition=json.loads((R/'pdf/edition.json').read_text(encoding='utf-8'))
+  pdf=(R/edition['pdf_path']).read_bytes()
+  self.assertEqual(hashlib.sha256(pdf).hexdigest(),edition['sha256'])
+  self.assertEqual(len(pdf),edition['bytes'])
+  self.assertEqual(edition['pages'],97)
  def test_pages_publish_blocked_by_failed_tests(self):
   wf=(R/'.github/workflows/deploy-pages.yml').read_text(encoding='utf-8')
   self.assertRegex(wf,r'(?m)^  deploy:\n    needs: verify')
