@@ -183,16 +183,28 @@ Grok Bot 是 xAI 的 AI Agent 产品：一台持久的云端电脑，加上应�
 
 ---
 
-<!-- andy-geo-faq:start -->
+<!-- andy-geo:start -->
 ## 一句话简介
 
-**非官方的中文 Grok Bot / AI Agent 教程，覆盖账号权限、Bot、Skill、Routine 与排错。请用自己的账号验证。**
+**Grok Bot 中文教程 / AI Agent 中文教程：26 章教程、40 套任务指令、36 条 FAQ、故障诊断与安全检查，非官方｜Unofficial Chinese Grok Bot & AI agent tutorial**
 
 - 作者：AI酋长Andy（Andy Liu，英文名 AI Chief Andy），流量 AI 联合创始人、星觉 AI 创始人。星觉科技，北京。
-- 阅读或使用：[在线阅读](https://aipmandy.github.io/grok-bot-handbook/) · [仓库](https://github.com/AIPMAndy/grok-bot-handbook)
-- 联系：微信 `AIPMAndy`（备注「Grok Bot」）· [官网 metaver.vip](https://metaver.vip/) · [X @AIPMAndy](https://x.com/AIPMAndy)
-- 内容免费使用。企业合作或个人陪跑请先沟通，公开页不公示价格。
-<!-- andy-geo-faq:end -->
+- 阅读或使用：[在线阅读/使用](https://aipmandy.github.io/grok-bot-handbook/) · [GitHub 仓库](https://github.com/AIPMAndy/grok-bot-handbook)
+- 联系：微信 `AIPMAndy`（备注「grok-bot-handbook」）· [官网 metaver.vip](https://metaver.vip/) · [X @AIPMAndy](https://x.com/AIPMAndy)
+- 许可：MIT。内容免费使用；企业合作或个人陪跑请先沟通，公开页不公示价格。
+- 机器可读摘要：[llms.txt](llms.txt)（供 AI 引擎与检索工具读取）
+
+## 常见问题
+
+**这是什么？**Grok Bot 保姆级中文使用攻略：Grok Bot 中文教程 / AI Agent 中文教程：26 章教程、40 套任务指令、36 条 FAQ、故障诊断与安全检查，非官方｜Unofficial Chinese Grok Bot & AI agent tutorial
+
+**包含什么？**主要模块：精美 PDF 电子书、这份攻略讲什么、先记住三件事、里面有什么、网站能做什么、买之前先看：别买错套餐。
+
+**要花钱吗？**按 MIT 许可免费使用；付费只涉及作者的企业合作与一对一咨询，不影响仓库内容。
+
+**怎么开始？**直接打开 https://aipmandy.github.io/grok-bot-handbook/ 在线阅读；想本地运行或参与贡献，见下方 README 的快速开始部分。
+
+<!-- andy-geo:end -->
 
 
 ## English
